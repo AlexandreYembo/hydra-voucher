@@ -31,7 +31,6 @@ namespace Hydra.Voucher.API
             services.AddApiConfiguration(Configuration);
             services.AddJwtConfiguration(Configuration);
             services.AddSwaggerConfiguration();
-            services.AddMediatR(typeof(Startup));
             services.RegisterServices();
             services.AddMongoDB(Configuration);
             services.AddMessageBusConfiguration(Configuration);

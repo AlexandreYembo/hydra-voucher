@@ -1,3 +1,4 @@
+using Hydra.WebAPI.Core.Identity;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -19,9 +20,6 @@ namespace Hydra.Voucher.API.Setup
                             .AllowAnyMethod()
                             .AllowAnyHeader());
             });
-
-            //MediatR.Extensions.Microsoft.DependencyInjection  - used to work with  native Aspnet core dependency injection
-            services.AddMediatR(typeof(Startup));
         }
 
         public static void UseApiConfiguration(this IApplicationBuilder app, IWebHostEnvironment env)
@@ -37,7 +35,7 @@ namespace Hydra.Voucher.API.Setup
 
             app.UseCors("Voucher");
 
-            //app.UseAuthConfiguration();
+            app.UseAuthConfiguration();
 
             app.UseEndpoints(endpoints =>
             {
